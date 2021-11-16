@@ -1,6 +1,5 @@
 import numpy as np
 import os
-import pickle
 import matplotlib.pyplot as plt
 from matplotlib import image
 from scipy.spatial.distance import cdist
