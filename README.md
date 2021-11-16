@@ -9,8 +9,6 @@ To get the dataset, you need:
 
 (2) some python packages: numpy, matplotlib, scipy, PIL, tqdm.
 
-"Fixation.txt" includes all gaze data from 5 runs of the data collection (after filtering gaze duration <0.1s). Inside the directory "data_5runs", you will find 5 files and each stands for 1 run of the collection. 
-
 1. To get the all fixation points in one heatmap for each image, as shown in the example below, you can download from [here](https://drive.google.com/file/d/1EC4H7N_l2UEtMxFZYOhZCBGz29QSVl2Q/view?usp=sharing). 
    
    Every image is saved under its index which can be found in the file `images.txt` in CUB.
@@ -32,6 +30,13 @@ To get the dataset, you need:
      More settings can be found in the comments in the script.
      
     *Please note that the fixation duration will not effect the fixation heatmaps in this mode.*
+
+
+In "Fixation.txt", gaze data of each image in CUB can be found.
+Each line contains the following information:
+> img_id, original_img_width, original_img_height, img_width_on_display, img_height_on_display, x_img_on_display, y_img_on_display, x_gaze_0, y_gaze_0, duration_gaze_0,  x_gaze_1, y_gaze_1, duration_gaze_1, .... x_gaze_N, y_gaze_N, duration_gaze_N.
+
+"Fixation.txt" includes all gaze data from five runs of the data collection (after filtering gaze duration <0.1s). Inside the folder "data_5runs", you will find five files and each contains fixation in one run of the collection. 
 
 If you use this dataset in your research, please cite
 ```
