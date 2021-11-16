@@ -11,7 +11,11 @@ To get the dataset, you need:
 
 "Fixation.txt" includes all gaze data from 5 runs of the data collection (after filtering gaze duration <0.1s). Inside the directory "data_5runs", you will find 5 files and each stands for 1 run of the collection. 
 
-1. To get the all fixation points in one heatmap for each image, as shown in the example below, please run the command:
+1. To get the all fixation points in one heatmap for each image, as shown in the example below, you can download from [here](https://drive.google.com/file/d/1EC4H7N_l2UEtMxFZYOhZCBGz29QSVl2Q/view?usp=sharing). 
+   
+   Every image is saved under its index which can be found in the file `images.txt` in CUB.
+   
+   Or you can run the command and generate heatmaps:
 
    `python generate_heatmap.py --CUB_dir_path <path_to_CUB> --CUB_GHA_save_path <path_to_save_CUB_GHA> --gaze_file_path ./Fixation.txt`
 
@@ -22,7 +26,12 @@ To get the dataset, you need:
    `python generate_heatmap.py --single_fixation --CUB_dir_path <path_to_CUB> --CUB_GHA_save_path <path_to_save_CUB_GHA> --gaze_file_path ./Fixation.txt`
 
 	![](./examples/single.jpg)
-    *Please note that the fixation duration will not effect the fixation heatmaps.*
+    
+     Fixation belonging to one image will be saved under a directory named with its index.
+     
+     More settings can be found in the comments in the script.
+     
+    *Please note that the fixation duration will not effect the fixation heatmaps in this mode.*
 
 If you use this dataset in your research, please cite
 ```
@@ -33,4 +42,7 @@ If you use this dataset in your research, please cite
   year={2021}
 }
 ```
+Contact me (yao.rong@uni-tuebingen.de) if you have any questions or suggestions.
+
 We thank this [repo](https://github.com/TobiasRoeddiger/GazePointHeatMap) for providing some functions of gaze visualization.
+
