@@ -5,7 +5,7 @@ This repo includes the CUB-GHA (Gaze-based Human Attention) dataset and code of 
 ## CUB-GHA Dataset
 To get the dataset, you need:
 
-(1) CUB-200-2011 which can be downloaded [here](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html).
+(1) CUB-200-2011, which can be downloaded [here](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html).
 
 (2) some python packages: numpy, matplotlib, scipy, PIL, tqdm.
 
