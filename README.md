@@ -16,11 +16,12 @@ If you would like to generate GHA by yourself. You need:
 1. To generate the all fixation points in one heatmap for each image, as shown in the example below, please run the command:
 	`python generate_heatmap.py --CUB_dir_path <path_to_CUB> --CUB_GHA_save_path <path_to_save_CUB_GHA> --gaze_file_path ./Fixation.txt`
 
-![](./examples/all.jpg)
+	![](./examples/all.jpg)
 
 2. To get single fixation heatmaps for each image, as shown in the example below, please run the command. Fixation belonging to one image will be saved under a directory named with its index.
 	`python generate_heatmap.py --single_fixation --CUB_dir_path <path_to_CUB> --CUB_GHA_save_path <path_to_save_CUB_GHA> --gaze_file_path ./Fixation.txt`
-![](./examples/single.jpg)
+	
+	![](./examples/single.jpg)
 
 
 	More settings can be found in the comments in the script.
@@ -51,6 +52,7 @@ If you would like to generate GHA by yourself. You need:
 
 #### Code Structure:
 In the folder CUB, you can find the code for training on CUB.
+
 `train.py`: main script to train.
 
 `dataset.py`: read CUB images together with human attention from CUB-GHA.
