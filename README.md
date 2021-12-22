@@ -111,7 +111,7 @@ In the folder CUB, you can find the code for training on CUB.
 		└── egd-cxr/
 		      └── fixation_heatmaps
 		      └── 1.0.0/
-			        └── master_sheet.csv	
+			    └── master_sheet.csv	
 		└── files/
 		     └── mimic-cxr-2.0.0-metadata.csv, ...
 		     └── files/
