@@ -2,9 +2,6 @@
 
 This repo includes the CUB-GHA (Gaze-based Human Attention) dataset and code of the paper ["Human Attention in Fine-grained Classification"](https://arxiv.org/pdf/2111.01628.pdf) accepted to BMVC 2021.
 
-  
-  
-
 ## CUB-GHA Dataset
 To get the CUB-GHA (heatmap for each image) as shown in the paper, you can download from [here](https://drive.google.com/drive/folders/1Oc6oLSHO5xELa5Qy2i7hMOF9_wwTzvdb?usp=sharing) (CUB-GHA.zip). Every image is saved under its index, and the index can be found in `images.txt` in CUB_200_2011.
 
@@ -102,10 +99,77 @@ In the folder CUB, you can find the code for training on CUB.
 3. A KFN (two branches of ResNet-50) using GAT-pretrained backbone (accuracy 88.66%) can be found in the folder `models` from [here](https://drive.google.com/drive/folders/1Oc6oLSHO5xELa5Qy2i7hMOF9_wwTzvdb?usp=sharing).  
   
 
+## CXR-Eye Experiments
+#### Requirement:
+1. packages: pytorch, numpy, TensorboardX, imageio, pillow, [segmentation-models-pytorch](https://github.com/qubvel/segmentation_models.pytorch), pandas.
+2. MIMIC-CXR-JPG dataset and CXR-Eye dataset. 
+   MIMIC-CXR-JPG can be downloaded from [here](https://physionet.org/content/mimic-cxr-jpg/2.0.0/#methods). To download the CXR-Eye dataset, please check the repo [cxr-eye-gaze](https://github.com/cxr-eye-gaze/eye-gaze-dataset)
+
+   The two datasets organized as:
+	```
+	CXR-JPG/
+		└── egd-cxr/
+		      └── fixation_heatmaps
+		      └── 1.0.0/
+			        └── master_sheet.csv	
+		└── files/
+		     └── mimic-cxr-2.0.0-metadata.csv, ...
+		     └── files/
+			      └── p10
+				  └── p11
+				  └── ...
+
+	```
+	where `egd-cxr` is from [cxr-eye-gaze](https://github.com/cxr-eye-gaze/eye-gaze-dataset) and CXR-JPG is from [MIMIC-CXR-JPG](https://physionet.org/content/mimic-cxr-jpg/2.0.0/#methods).
+
+#### Code Structure:
+In the folder CXR-Eye, you can find the code for training on CXR-Eye.
+
+`main.py`: main script, including functions to train and evaluate.
+
+`utils/dataset.py`: read CXR images together with human attention from CXR-Eye.
+
+`utils/gradcam_utils.py, visualization.py`: functions for visualizing GradCAM of models but not in the training phase. 
+
+`utils/utils.py`: functions for GAT training and others.
+
+`models`: code for our model, GAT and KFN.
+
+`run_train.sh`: to train the model. `run_eval.sh`: to evalate the model.
+
+#### Gaze Augmentation Training
+To train the model with GAT, set `--model_type gat` in `run_train.sh`.
+
+Change the path of `--data_path`, `--image_path` and `--heatmaps_path` where you stored them. 
+
+If you want to use 5-fold cross validation, please set the flag `--crossval`, otherwise, random train and test splits will be used. 
+
+If you use `--rseed 1`, you will use the same 5-fold cross validation as used in the paper.
+
+Go to the folder CXR-Eye and run `sh run_train.sh` to start training.
+After the training, the models are saved and the final average accuracy is printed. 
+
+If you only want to run the evaluation, please go to `run_eval.sh` and set `--test_dir` to the path of saved models and run `sh run_eval.sh`.
+
+#### Knowledge Fusion Network
+To train the KFN, set `--model_type kfn` in `run_train.sh`.
+
+Change the path of `--data_path`, `--image_path` and `--heatmaps_path` where you stored them. 
+
+If you want to use 5-fold cross validation, please set the flag `--crossval`, otherwise, random train and test splits will be used. 
+
+If you use `--rseed 1`, you will use the same 5-fold cross validation as used in the paper.
+
+If you want to train KFN with GAT-pretrained backbone, please set `--pretrained_dir` to the path where gat-trained backbonses are saved, e.g. `./checkpoint/gat_crossv-True_rseed1`. 
+
+Go to the folder CXR-Eye and run `sh run_train.sh` to start training.
+After the training, the models are saved and the final average accuracy is printed. 
+
+If you only want to run the evaluation, please go to `run_eval.sh` and set `--test_dir` to the path of saved models. For KFN, GradCAM visualization is enable in evaluation if you set the flag `--gcam_viz`.
 
 
-
-If you use CUB-GHA dataset or code in this repo in your research, please cite
+## 
+If you use the CUB-GHA dataset or code in this repo in your research, please cite
 
 ```
 @article{rong2021human,
@@ -123,3 +187,5 @@ We thank the following repos:
 1.  [GazePointHeatMap](https://github.com/TobiasRoeddiger/GazePointHeatMap) for providing some functions of gaze visualization.
 
 2.  [MMAL-Net](https://github.com/ZF4444/MMAL-Net) for providing functions of training CUB.
+
+3.  [cxr-eye-gaze](https://github.com/cxr-eye-gaze/eye-gaze-dataset) for providing the dataset and functions of training on CXR-eye.
