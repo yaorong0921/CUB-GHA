@@ -89,7 +89,7 @@ In the folder CUB, you can find the code for training on CUB.
 	pretrain_path, GAT_pretrained = './pretrained/resnet50-19c8e357.pth', False
 	batch_size = 8
 	```
-	To train KFN with GAT-pretrained backbone, please change the `pretrain_path` and set `GAT_pretrained`to True , e.g. :
+	To train KFN with the GAT-pretrained backbone, please change `pretrain_path` and set `GAT_pretrained`to True , e.g.:
 	```
 	pretrain_path, GAT_pretrained = '/checkpoint/gat/best/best.pth', True
 	```
@@ -144,12 +144,12 @@ Change the path of `--data_path`, `--image_path` and `--heatmaps_path` where you
 
 If you want to use 5-fold cross validation, please set the flag `--crossval`, otherwise, random train and test splits will be used. 
 
-If you use `--rseed 1`, you will use the same 5-fold cross validation as used in the paper.
+If you use `--rseed 1`, you will use the same 5-fold cross validation as in the paper.
 
 Go to the folder CXR-Eye and run `sh run_train.sh` to start training.
 After the training, the models are saved and the final average accuracy is printed. 
 
-If you only want to run the evaluation, please go to `run_eval.sh` and set `--test_dir` to the path of saved models and run `sh run_eval.sh`.
+If you want to run the evaluation only, please go to `run_eval.sh` and set `--test_dir` to the path of saved models and run `sh run_eval.sh`.
 
 #### Knowledge Fusion Network
 To train the KFN, set `--model_type kfn` in `run_train.sh`.
@@ -160,12 +160,12 @@ If you want to use 5-fold cross validation, please set the flag `--crossval`, ot
 
 If you use `--rseed 1`, you will use the same 5-fold cross validation as used in the paper.
 
-If you want to train KFN with GAT-pretrained backbone, please set `--pretrained_dir` to the path where gat-trained backbonses are saved, e.g. `./checkpoint/gat_crossv-True_rseed1`. 
+If you want to train KFN with the GAT-pretrained backbone, please set `--pretrained_dir` to the path where gat-trained backbonses are saved, e.g. `./checkpoint/gat_crossv-True_rseed1`. 
 
 Go to the folder CXR-Eye and run `sh run_train.sh` to start training.
 After the training, the models are saved and the final average accuracy is printed. 
 
-If you only want to run the evaluation, please go to `run_eval.sh` and set `--test_dir` to the path of saved models. For KFN, GradCAM visualization is enable in evaluation if you set the flag `--gcam_viz`.
+If you want to run the evaluation only, please go to `run_eval.sh` and set `--test_dir` to the path of saved models. For KFN, GradCAM visualization is enable in evaluation if you set the flag `--gcam_viz`.
 
 
 ## 
