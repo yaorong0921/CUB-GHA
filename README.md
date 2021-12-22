@@ -116,8 +116,8 @@ In the folder CUB, you can find the code for training on CUB.
 		     └── mimic-cxr-2.0.0-metadata.csv, ...
 		     └── files/
 			      └── p10
-				  └── p11
-				  └── ...
+			      └── p11
+			      └── ...
 
 	```
 	where `egd-cxr` is from [cxr-eye-gaze](https://github.com/cxr-eye-gaze/eye-gaze-dataset) and CXR-JPG is from [MIMIC-CXR-JPG](https://physionet.org/content/mimic-cxr-jpg/2.0.0/#methods).
