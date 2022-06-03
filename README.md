@@ -158,7 +158,7 @@ Change the path of `--data_path`, `--image_path` and `--heatmaps_path` where you
 
 If you want to use 5-fold cross validation, please set the flag `--crossval`, otherwise, random train and test splits will be used. 
 
-If you use `--rseed 1`, you will use the same 5-fold cross validation as used in the paper.
+If you use `--rseed 1`, you will use the same 5-fold cross validation for each running for fairly comparing different settings (as used in the paper).
 
 If you want to train KFN with the GAT-pretrained backbone, please set `--pretrained_dir` to the path where gat-trained backbonses are saved, e.g. `./checkpoint/gat_crossv-True_rseed1`. 
 
