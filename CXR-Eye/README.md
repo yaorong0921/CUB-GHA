@@ -80,3 +80,18 @@
     If you want to run the evaluation only, please go to `run_eval.sh` and set `--test_dir` to the path of saved models. 
     
     For KFN, GradCAM visualization is enable in evaluation if you set the flag `--gcam_viz`.
+
+## 
+If you use the CUB-GHA dataset or code in this repo in your research, please cite
+
+```
+@article{rong2021human,
+title={Human Attention in Fine-grained Classification},
+author={Rong, Yao and Xu, Wenjia and Akata, Zeynep and Kasneci, Enkelejda},
+journal={arXiv preprint arXiv:2111.01628},
+year={2021}
+}
+```
+
+Contact me (yao.rong@uni-tuebingen.de) if you have any questions or suggestions.
+
